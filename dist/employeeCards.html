@@ -17,15 +17,18 @@
     <div class="employee-box">
         <div class="employee-cards">
         (employee) => {
-  return `
+  
+    return `
     <div class="card">
         <div class="card-header">
             <h2>${employee.name}</h2>
         </div>
         <div class="card-body">
-            <p>ID: ${employee.id}</p>
-            <p>Email: ${employee.email}</p>
-            <p>Office Number: ${employee.officeNumber}</p>
+        <ul>
+            <li>ID: ${employee.id}</li>
+            <li>Email: ${employee.email}</li>
+            <li>Office Number: ${employee.officeNumber}</li>
+        </ul>    
         </div>
     </div>
     `;

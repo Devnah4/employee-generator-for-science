@@ -3,8 +3,8 @@ const inquirer = require("inquirer");
 const template = require("./src/page.template.js");
 const Employee = require("./lib/employee");
 
-const employeeCard = [];
-const data = template(employeeCard);
+// Saves data to an array
+const teamBuild = [];
 
 // Ask the user for the information
 const questions = [
@@ -40,8 +40,8 @@ const questions = [
 function init() {
   inquirer.prompt(questions).then((data) => {
     const employee = new Employee(data.name, data.id, data.email, data.room);
-    
-    writeToFile(employee);
+    teamBuild.push(employee);
+    writeToFile();
   }
   );
 }
@@ -51,7 +51,7 @@ init();
 
 // To write the actual file
 function writeToFile() {
-  fs.writeFile("./dist/employeeCards.html", data, error => {
+  fs.writeFile("./dist/employeeCards.html", template(teamBuild), error => {
     if (error) throw error;
     console.log("Created file succesfully!");
 })
