@@ -1,40 +1,69 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const template = require("./src/page.template");
+const generateHtml = require("./src/page.template");
 const Employee = require("./lib/employee");
+const Manager = require("./lib/manager");
 
 // Saves data to an array
 const teamBuild = [];
 
 // Ask the user for the information
-const questions = [
-  {
-    type: "input",
-    name: "name",
-    message: "What is the Team Manager's name?",
-  },
-  {
-    type: "input",
-    name: "id",
-    message: "What is your Employee id?",
-  },
-  {
-    type: "input",
-    name: "email",
-    message: "What is your email address?",
-  },
-  {
-    type: "input",
-    name: "room",
-    message: "What is your office number?",
-  },
-  {
-    type: "confirm",
-    name: "add",
-    message: "Would you like to add another employee?",
-    default: false,
-  },
-];
+function managerQuestion => {
+  inquirer
+  .prompt(
+    [
+      {
+        type: "input",
+        name: "name",
+        message: "What is the Team Manager's name?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is your Employee id?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is your email address?",
+      },
+      {
+        type: "input",
+        name: "room",
+        message: "What is your office number?",
+      },
+      {
+        type: "confirm",
+        name: "add",
+        message: "Would you like to add another employee?",
+        default: false,
+        teamBuild.push(Manager);
+      } else {
+        if true
+        .then return 
+        type: "list",
+        name: "chooseClass",
+        message: "What class is this Employee?"
+        choices: ["Engineer", "Intern"]
+      },
+      
+      function engineerQuestion()
+      inquirer
+      .prompt(
+
+      )
+
+      function internQuestions()
+      inquirer
+      .prompt(
+
+      )
+
+      writeToFile()
+    ];
+  )
+   
+}
 
 // To create the employee card
 function init() {
@@ -42,7 +71,7 @@ function init() {
     const employee = new Employee(data.name, data.id, data.email, data.room);
     teamBuild.push(employee);
     console.log(teamBuild);
-    return writeToFile("./dist/team.html", template(teamBuild));
+    return writeToFile("./dist/team.html", generateHtml(teamBuild));
   });
 }
 

@@ -1,11 +1,66 @@
 const index = require('../index')
 const Employee = require('../lib/employee')
 
-// Generate Card Based on employee class
-module.exports = (generateHtml) => {
+function managerCard(manager) {
+    return`
+    <div class="card">
+            <div class="card-header">
+                <h2>${manager.name}</h2>
+            </div>
+            <div class="card-body">
+            <ul>
+                <li>ID: ${manager.id}</li>
+                <li>Email: ${manager.email}</li>
+                <li>Office Number: ${manager.room}</li>
+            </ul>    
+            </div>
+    </div>`
+}
 
-    return `
-    <!DOCTYPE html>
+function engineerCard(engineer) {
+    for (engineer.length, )
+    return`
+    <div class="card">
+            <div class="card-header">
+                <h2>${engineer.name}</h2>
+            </div>
+            <div class="card-body">
+            <ul>
+                <li>ID: ${engineer.id}</li>
+                <li>Email: ${engineer.email}</li>
+                <li>Office Number: ${engineer.room}</li>
+            </ul>    
+            </div>
+    </div>`
+}
+
+function internCard(intern) {
+    return`
+    <div class="card">
+            <div class="card-header">
+                <h2>${manager.name}</h2>
+            </div>
+            <div class="card-body">
+            <ul>
+                <li>ID: ${manager.id}</li>
+                <li>Email: ${manager.email}</li>
+                <li>Office Number: ${manager.room}</li>
+            </ul>    
+            </div>
+    </div>`
+}
+
+
+
+const generateHtml = (teamBuild) => {
+    let employeeHtml = teamBuild.map(employee => {
+        let role = employee.getRole()
+        if manager === role then managerCard(employee)
+        if engineer == role then engineerCard(employee)
+        if intern == role then internCard(employee)
+    }).join()
+
+    return `<!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -22,21 +77,12 @@ module.exports = (generateHtml) => {
     
     <div class="employee-box">
         <div class="employee-cards">
-        <div class="card">
-        <div class="card-header">
-            <h2>${Employee.name}</h2>
-        </div>
-        <div class="card-body">
-        <ul>
-            <li>ID: ${Employee.id}</li>
-            <li>Email: ${Employee.email}</li>
-            <li>Office Number: ${Employee.officeNumber}</li>
-        </ul>    
-        </div>
-    </div>
-        </div>   
+        ${employeeHtml}
+        </div>  
     </div>
     
     </body>
     </html>`;
-};
+}
+
+module.exports = generateHtml;
