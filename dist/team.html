@@ -1,10 +1,4 @@
-const index = require('../index')
-const Employee = require('../lib/employee')
 
-// Generate Card Based on employee class
-module.exports = (generateHtml) => {
-
-    return `
     <!DOCTYPE html>
     <html lang="en">
 
@@ -24,13 +18,13 @@ module.exports = (generateHtml) => {
         <div class="employee-cards">
         <div class="card">
         <div class="card-header">
-            <h2>${Employee.name}</h2>
+            <h2>Employee</h2>
         </div>
         <div class="card-body">
         <ul>
-            <li>ID: ${Employee.id}</li>
-            <li>Email: ${Employee.email}</li>
-            <li>Office Number: ${Employee.officeNumber}</li>
+            <li>ID: undefined</li>
+            <li>Email: undefined</li>
+            <li>Office Number: undefined</li>
         </ul>    
         </div>
     </div>
@@ -38,5 +32,4 @@ module.exports = (generateHtml) => {
     </div>
     
     </body>
-    </html>`;
-};
+    </html>

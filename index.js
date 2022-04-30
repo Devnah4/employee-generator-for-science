@@ -1,6 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const template = require("./src/page.template.js");
+const template = require("./src/page.template");
 const Employee = require("./lib/employee");
 
 // Saves data to an array
@@ -41,19 +41,18 @@ function init() {
   inquirer.prompt(questions).then((data) => {
     const employee = new Employee(data.name, data.id, data.email, data.room);
     teamBuild.push(employee);
-    writeToFile();
-  }
-  );
+    console.log(teamBuild);
+    return writeToFile("./dist/team.html", template(teamBuild));
+  });
+}
+
+// To write the actual file
+function writeToFile(fileName, data) {
+  return fs.writeFile(fileName, data, (error) => {
+    if (error) throw error;
+    console.log("Created file succesfully!");
+  });
 }
 
 // Starts up the whole thing
 init();
-
-// To write the actual file
-function writeToFile() {
-  fs.writeFile("./dist/employeeCards.html", template(teamBuild), error => {
-    if (error) throw error;
-    console.log("Created file succesfully!");
-})
-}
-
