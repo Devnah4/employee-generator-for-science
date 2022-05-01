@@ -1,0 +1,38 @@
+:root {
+  --color-primary: #f97444;
+  --color-secondary: #032a5d;
+  --color-tertiary: #ccdaeb;
+  --color-quaternary: #dad9d5;
+  --color-quinary: #fefbec;
+}
+
+.card {
+  width: 40vw;
+  min-width: 30vw;
+  margin: 15px;
+  background-color: #c7bea2;
+}
+
+.manager-header {
+  background-color: var(--color-primary);
+  text-align: center;
+}
+
+.engineer-header {
+    background-color: var(--color-secondary);
+    text-align: center;
+  }
+
+.intern-header {
+    background-color: var(--color-tertiary);
+    text-align: center;
+  }
+
+header {
+  text-align: center;
+  background-color: var(--color-quinary);
+}
+
+body {
+  background-color: var(--color-quaternary);
+}
