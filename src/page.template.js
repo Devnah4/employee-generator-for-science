@@ -1,11 +1,71 @@
 const index = require('../index')
-const Employee = require('../lib/employee')
+const Manager = require('../lib/manager')
+const Engineer = require('../lib/engineer')
+const Intern = require('../lib/intern')
 
-// Generate Card Based on employee class
-module.exports = (generateHtml) => {
 
-    return `
-    <!DOCTYPE html>
+function managerCard(manager) {
+    return`
+    <div class="card">
+            <div class="card-header">
+                <h2>${manager.name}</h2>
+            </div>
+            <div class="card-body">
+            <ul>
+                <li>ID: ${manager.id}</li>
+                <li>Email: ${manager.email}</li>
+                <li>Office Number: ${manager.room}</li>
+            </ul>    
+            </div>
+    </div>`
+}
+
+function engineerCard(engineer) {
+    return`
+    <div class="card">
+            <div class="card-header">
+                <h2>${engineer.name}</h2>
+            </div>
+            <div class="card-body">
+            <ul>
+                <li>ID: ${engineer.id}</li>
+                <li>Email: ${engineer.email}</li>
+                <li>GitHub: ${engineer.github}</li>
+            </ul>    
+            </div>
+    </div>`
+}
+
+function internCard(intern) {
+    return`
+    <div class="card">
+            <div class="card-header">
+                <h2>${intern.name}</h2>
+            </div>
+            <div class="card-body">
+            <ul>
+                <li>ID: ${intern.id}</li>
+                <li>Email: ${intern.email}</li>
+                <li>Office Number: ${intern.room}</li>
+            </ul>    
+            </div>
+    </div>`
+}
+
+
+
+const generateHtml = (teamBuild) => {
+     let employeeHtml = teamBuild.map(employee => {
+        if (employee instanceof Manager) {
+            return managerCard(employee)
+        } else if (employee instanceof Engineer) {
+            return engineerCard(employee)
+        } else if (employee instanceof Intern) {
+            return internCard(employee)
+        }
+    }).join('')
+
+    return `<!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -22,21 +82,12 @@ module.exports = (generateHtml) => {
     
     <div class="employee-box">
         <div class="employee-cards">
-        <div class="card">
-        <div class="card-header">
-            <h2>${Employee.name}</h2>
-        </div>
-        <div class="card-body">
-        <ul>
-            <li>ID: ${Employee.id}</li>
-            <li>Email: ${Employee.email}</li>
-            <li>Office Number: ${Employee.officeNumber}</li>
-        </ul>    
-        </div>
-    </div>
-        </div>   
+        ${employeeHtml}
+        </div>  
     </div>
     
     </body>
     </html>`;
-};
+}
+
+module.exports = generateHtml;
