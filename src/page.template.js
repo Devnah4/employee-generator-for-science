@@ -1,5 +1,8 @@
 const index = require('../index')
-const Employee = require('../lib/employee')
+const Manager = require('../lib/manager')
+const Engineer = require('../lib/engineer')
+const Intern = require('../lib/intern')
+
 
 function managerCard(manager) {
     return`
@@ -18,7 +21,6 @@ function managerCard(manager) {
 }
 
 function engineerCard(engineer) {
-    for (engineer.length, )
     return`
     <div class="card">
             <div class="card-header">
@@ -28,7 +30,7 @@ function engineerCard(engineer) {
             <ul>
                 <li>ID: ${engineer.id}</li>
                 <li>Email: ${engineer.email}</li>
-                <li>Office Number: ${engineer.room}</li>
+                <li>GitHub: ${engineer.github}</li>
             </ul>    
             </div>
     </div>`
@@ -38,13 +40,13 @@ function internCard(intern) {
     return`
     <div class="card">
             <div class="card-header">
-                <h2>${manager.name}</h2>
+                <h2>${intern.name}</h2>
             </div>
             <div class="card-body">
             <ul>
-                <li>ID: ${manager.id}</li>
-                <li>Email: ${manager.email}</li>
-                <li>Office Number: ${manager.room}</li>
+                <li>ID: ${intern.id}</li>
+                <li>Email: ${intern.email}</li>
+                <li>Office Number: ${intern.room}</li>
             </ul>    
             </div>
     </div>`
@@ -53,12 +55,15 @@ function internCard(intern) {
 
 
 const generateHtml = (teamBuild) => {
-    let employeeHtml = teamBuild.map(employee => {
-        let role = employee.getRole()
-        if manager === role then managerCard(employee)
-        if engineer == role then engineerCard(employee)
-        if intern == role then internCard(employee)
-    }).join()
+     let employeeHtml = teamBuild.map(employee => {
+        if (employee instanceof Manager) {
+            return managerCard(employee)
+        } else if (employee instanceof Engineer) {
+            return engineerCard(employee)
+        } else if (employee instanceof Intern) {
+            return internCard(employee)
+        }
+    }).join('')
 
     return `<!DOCTYPE html>
     <html lang="en">
