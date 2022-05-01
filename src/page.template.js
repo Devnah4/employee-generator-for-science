@@ -81,13 +81,11 @@ const generateHtml = (teamBuild) => {
     <body>
         
     <header>
-        <h1>Employee List</h1>
+        <h1 class="col-12 col-md-12 col-sm-12>Employee List</h1>
     </header>
     
     <div class="employee-box">
-        <div class="employee-cards">
         ${employeeHtml}
-        </div>  
     </div>
     
     </body>
