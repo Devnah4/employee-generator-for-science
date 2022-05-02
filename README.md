@@ -12,9 +12,9 @@ Creates a team of employees using Node and inquirer
 
 ## Demo
 
-[Screenshot]((https://user-images.githubusercontent.com/98830462/166164492-79ddfbfb-5131-44db-b2b8-1aef073fd194.png))
+(https://user-images.githubusercontent.com/98830462/166164492-79ddfbfb-5131-44db-b2b8-1aef073fd194.png)
 
-[Walkthrough](https://user-images.githubusercontent.com/98830462/166164492-79ddfbfb-5131-44db-b2b8-1aef073fd194.png)
+https://user-images.githubusercontent.com/98830462/166170709-c49a40f0-0440-475a-a72e-a22d814ef9b4.mp4
 
 ## Installation
 
