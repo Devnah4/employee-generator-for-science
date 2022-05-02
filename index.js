@@ -46,6 +46,7 @@ const makeRole = async () => {
     ]);
     const manager = new Manager(
       answer.name,
+      answer.chooseClass,
       answer.id,
       answer.email,
       manAns.room
@@ -62,6 +63,7 @@ const makeRole = async () => {
     ]);
     const engineer = new Engineer(
       answer.name,
+      answer.chooseClass,
       answer.id,
       answer.email,
       engAns.github
@@ -78,6 +80,7 @@ const makeRole = async () => {
     ]);
     const intern = new Intern(
       answer.name,
+      answer.chooseClass,
       answer.id,
       answer.email,
       internAns.school
